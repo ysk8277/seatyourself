@@ -8,18 +8,18 @@
 
 Restaurant.create ([{
   name: 'Jack Astors', 
-  summary: 'Bar, grill and more', 
+  description: 'Bar, grill and more', 
   capacity: 200
 }])
 
 Restaurant.create ([{
   name: 'Fune Sushi', 
-  summary: 'Fresh sushi on boats', 
+  description: 'Fresh sushi on the boats', 
   capacity: 50
 }])
 
 Restaurant.create ([{
   name: 'GBC Burgers', 
-  summary: 'Canadian beef gourmet burgers', 
+  description: 'Canadian beef gourmet burgers', 
   capacity: 25
 }])

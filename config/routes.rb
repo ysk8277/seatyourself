@@ -1,7 +1,9 @@
 Seatyourself::Application.routes.draw do
 
   root 'restaurants#index'
+
   resources :restaurants
+  resources :reservations
 
 
   # The priority is based upon order of creation: first created -> highest priority.
