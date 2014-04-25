@@ -1,2 +1,4 @@
-<h1>Reservations#show</h1>
-<p>Find me in app/views/reservations/show.html.erb</p>
+<p><%= @restaurant.name %></p> 
+<p><%= @reservation.party_size %></p>
+<p><%= @reservation.party_time %></p>
+<p><%= link_to "Delete", @reservations, :confirm => "Are you sure?", :method => :delete %></p>
