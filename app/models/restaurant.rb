@@ -1,5 +1,6 @@
 class Restaurant < ActiveRecord::Base
   has_many :reservations
+  has_many :users, :through => :reservations
   
   validates :name, :description, :presence => true
   validates :capacity, :opening_hours, :closing_hours, :numericality => {:only_integer => true}
