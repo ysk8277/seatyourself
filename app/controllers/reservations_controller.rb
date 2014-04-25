@@ -17,7 +17,7 @@ before_filter :ensure_logged_in, :only => [:edit, :create, :show, :update, :dest
     if @reservation.save
       redirect_to restaurants_path, notice: "Reservation created successfully"
     else
-      redirect_to restaurants_path, notice: "Reservation not created"     
+      redirect_to restaurant_path(@restaurant), notice: "Sorry. Restaurant is full at the moment"     
     end
   end
 
