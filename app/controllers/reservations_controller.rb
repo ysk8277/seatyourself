@@ -12,12 +12,13 @@ before_filter :ensure_logged_in, :only => [:edit, :create, :show, :update, :dest
 
   def create
     @reservation = @restaurant.reservations.build(reservation_params)
+    @reservation.restaurant_id = @restaurant.id
     @reservation.user_id = current_user.id
 
     if @reservation.save
-      redirect_to restaurants_path, notice: "Reservation created successfully"
+      redirect_to restaurant_reservation_path(@restaurant, @reservation.id), notice: "Reservation created successfully"
     else
-      redirect_to restaurant_path(@restaurant), notice: "Sorry. Restaurant is full at the moment"     
+      redirect_to restaurants_path, notice: "Sorry. Restaurant is full at the moment"     
     end
   end
 
@@ -27,6 +28,7 @@ before_filter :ensure_logged_in, :only => [:edit, :create, :show, :update, :dest
   def destroy
       @reservation = Reservation.find(params[:id])
       @reservation.destroy
+      redirect_to restaurants_path
   end
 
   private
