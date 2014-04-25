@@ -5,7 +5,10 @@ Seatyourself::Application.routes.draw do
   resources :restaurants do
     resources :reservations, :only => [:show, :create, :destroy]
   end
-  resources :users, :only => [:new, :create]
+  resources :users, :only => [:new, :create] do
+    resources :reservations, :only => [:show, :create, :destroy]
+  end
+
   resources :sessions, :only => [:new, :create, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
