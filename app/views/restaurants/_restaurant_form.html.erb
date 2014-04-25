@@ -1,3 +1,7 @@
+<% all_hours = [ 
+  ["6 am", 6], ["7 am", 7], ["8 am", 8], ["9 am", 9], ["10 am", 10], ["11 am", 11], ["12 pm", 12], ["1 pm", 13], ["2 pm", 14], ["3 pm", 15], ["4 pm", 16], ["5 pm", 17], ["6 pm", 18], ["7 pm", 19], ["8 pm", 20], ["9 pm", 21], ["10 pm", 22], ["11 pm", 23], ["12 am", 0], ["1 am", 1], ["2 am", 2], ["3 am", 3], ["4 am",4 ], ["5 am", 5]
+] %>
+
 <%= form_for(@restaurant) do |f| %>
   <% if @restaurant.errors.any? %>
     <div id="error_explanation">
@@ -19,7 +23,15 @@
   </div>
   <div class="field">
     <%= f.label :capacity %><br />
-    <%= f.number_field :capacity %>
+    <%= f.number_field :capacity, :min => 1 %>
+  </div>
+  <div class="field">
+    <%= f.label :opening_hours %><br />
+    <%= f.select :opening_hours, all_hours %>
+  </div>
+  <div class="field">
+    <%= f.label :closing_hours %><br />
+    <%= f.select :closing_hours, all_hours %>
   </div>
   <div class="actions">
     <%= f.submit %>

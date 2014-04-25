@@ -1,6 +1,9 @@
 <h2>Restaurant</h2>
   
-  <p>Name: <%= @restaurant[:name] %></p>
+  <p>Name: <%= @restaurant[:name] %> </p>
+  <p>Business hours: <%= @restaurant.all_hours_convert(@restaurant[:opening_hours]) %> -  
+                     <%= @restaurant.all_hours_convert(@restaurant[:closing_hours]) %></p>
   <p><%= @restaurant[:description] %></p>
+
 
 <%= link_to "Home", restaurants_path %> | <%= link_to "Edit", edit_restaurant_path(@restaurant) %> | <%= link_to "Delete", @restaurant, :confirm => "Are you sure you want to delete this restaurant?", :method => :delete %>
