@@ -1,7 +1,7 @@
 class Reservation < ActiveRecord::Base
   belongs_to :restaurant
 
-  vaildate :availability
+  validate :availability
 
   private
   def availability
